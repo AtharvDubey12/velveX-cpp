@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build C++ Project",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-I", "src/headers",
+        "src/main.cpp",
+        "src/assets/tokenExtractor.cpp",
+        "src/assets/tokenProcessor.cpp",
+        "src/assets/expressionParser.cpp",
+        "src/assets/integHandler.cpp",
+        "src/assets/defintegHandler.cpp",
+        "-o", "parser"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
