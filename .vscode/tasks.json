@@ -16,6 +16,7 @@
         "src/assets/defintegHandler.cpp",
         "src/assets/fracHandler.cpp",
         "src/assets/diffHandler.cpp",
+        "src/assets/pdiffHandler.cpp",
         "-o", "parser"
       ],
       "group": {

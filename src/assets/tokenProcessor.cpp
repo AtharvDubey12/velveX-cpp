@@ -11,6 +11,7 @@ string tokenProcessor(vector<string>& tokenList){
     if(keyword == "Integ") return integHandler(tokenList);
     else if(keyword == "Frac") return fracHandler(tokenList);
     else if(keyword == "Diff") return diffHandler(tokenList);
+    else if(keyword == "Pdiff") return pdiffHandler(tokenList);
     else return tokenList[0];
 
     return "";
