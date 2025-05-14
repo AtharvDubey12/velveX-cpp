@@ -5,10 +5,8 @@
 
 using namespace std;
 
-int main(){
-    vector<string> test = {"Integ", "2", "y", "y"};
-    string x = expressionParser("( Integ[1][x][x] )");
-    
+int main(int argc, char* argv[]){
+    string x = expressionParser(argv[1]);
     string output = "";  //output with sanitized parenthesis.
     for (int i=0; i<x.length(); i++){
         if(x[i]=='(') output+= "\\left(";

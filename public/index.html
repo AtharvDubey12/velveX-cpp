@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>C++ Processor</title>
+</head>
+<body>
+    <h2>Enter Input:</h2>
+    <input type="text" id="inputBox" />
+    <button onclick="submitInput()">Submit</button>
+    <h3>Output:</h3>
+    <p id="outputBox"></p>
+
+    <script>
+        async function submitInput() {
+            const input = document.getElementById('inputBox').value;
+            const res = await fetch('/process', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ input })
+            });
+            const text = await res.text();
+            document.getElementById('outputBox').innerText = text;
+        }
+    </script>
+</body>
+</html>
