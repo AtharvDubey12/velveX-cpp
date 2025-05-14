@@ -8,3 +8,4 @@
 #include "fracHandler.h"
 #include "diffHandler.h"
 #include "pdiffHandler.h"
+#include "sqrtHandler.h"
