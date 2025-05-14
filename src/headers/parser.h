@@ -6,3 +6,4 @@
 #include "integHandler.h"
 #include "defintegHandler.h"
 #include "fracHandler.h"
+#include "diffHandler.h"
