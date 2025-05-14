@@ -14,6 +14,7 @@
         "src/assets/expressionParser.cpp",
         "src/assets/integHandler.cpp",
         "src/assets/defintegHandler.cpp",
+        "src/assets/fracHandler.cpp",
         "-o", "parser"
       ],
       "group": {

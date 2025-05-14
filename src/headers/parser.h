@@ -5,3 +5,4 @@
 #include "expressionParser.h"
 #include "integHandler.h"
 #include "defintegHandler.h"
+#include "fracHandler.h"
