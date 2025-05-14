@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>C++ Processor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VelveX</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Enter Input:</h2>
-    <input type="text" id="inputBox" />
-    <button onclick="submitInput()">Submit</button>
-    <h3>Output:</h3>
-    <p id="outputBox"></p>
+    <nav>
+        <div class="nav-container">
+            <div class="brand">VelveX</div>
+            <div class="headline">a parser for Velvet</div>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h1>Velvet to LaTeX Converter</h1>
+            
+            <div class="input-container">
+                <label for="inputBox">Enter Input (Velvet)</label>
+                <input type="text" id="inputBox" placeholder="Type velvet here..." />
+            </div>
+            
+            <button onclick="submitInput()">Convert</button>
+            
+            <div class="output-container">
+                <div class="output-label">Output (LaTeX)</div>
+                <div id="outputBox">
+                </div>
+                <div class="loader"></div>
+            </div>
+        </div>
+    </main>
 
-    <script src="script.js">
+        <script src="script.js">
     </script>
 </body>
 </html>

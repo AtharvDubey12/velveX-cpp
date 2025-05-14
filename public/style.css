@@ -1,0 +1,204 @@
+        :root {
+            --navy: #0a192f;
+            --green: #64ffda;
+            --white: #ffffff;
+            --light-gray: #f0f5f9;
+            --medium-gray: #e4e7eb;
+            --shadow: rgba(0, 0, 0, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: var(--white);
+            color: var(--navy);
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav {
+            background-color: var(--navy);
+            width: 100%;
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .brand {
+            color: var(--white);
+            font-size: 1.8rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        
+        .headline {
+            color: var(--green);
+            font-size: 1rem;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-top: 0.25rem;
+        }
+        
+        main {
+            padding: 3rem 2rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: var(--navy);
+            letter-spacing: -0.5px;
+        }
+
+        .input-container {
+            margin-bottom: 2.5rem;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--navy);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 4px;
+            background-color: var(--white);
+            transition: border 0.2s ease;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--green);
+            box-shadow: 0 0 0 2px rgba(100, 255, 218, 0.2);
+        }
+
+        button {
+            background-color: var(--navy);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            padding: 0.8rem 1.2rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        button:hover {
+            background-color: rgba(10, 25, 47, 0.9);
+        }
+
+        button::after {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 4px;
+            border-right: 2px solid var(--green);
+            border-bottom: 2px solid var(--green);
+            transform: rotate(-45deg);
+            margin-left: 0.5rem;
+        }
+
+        .output-container {
+            margin-top: 2rem;
+        }
+
+        .output-label {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            color: var(--navy);
+            display: flex;
+            align-items: center;
+        }
+
+        .output-label::before {
+            content: "";
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--green);
+            margin-right: 0.5rem;
+            border-radius: 50%;
+        }
+
+        #outputBox {
+            background-color: var(--light-gray);
+            border-left: 2px solid var(--green);
+            padding: 1.2rem;
+            font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+            font-size: 0.9rem;
+            min-height: 120px;
+            color: var(--navy);
+            border-radius: 0 4px 4px 0;
+            white-space: pre-wrap;
+            word-break: break-word;
+            position: relative;
+        }
+        
+        .loader {
+            display: none;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 24px;
+            height: 24px;
+        }
+        
+        .loader::after {
+            content: '';
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border: 3px solid var(--navy);
+            border-color: var(--navy) transparent var(--navy) transparent;
+            animation: loader 1.2s linear infinite;
+        }
+        
+        @keyframes loader {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .loading #outputBox {
+            color: rgba(10, 25, 47, 0.3);
+        }
+        
+        .loading .loader {
+            display: block;
+        }

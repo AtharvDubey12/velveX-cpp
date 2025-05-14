@@ -3,8 +3,15 @@
 #include "../headers/expressionParser.h"
 using namespace std;
 
+bool isDefinite(string expression){
+    for(int i=0; i<expression.length()-1; i++){
+        if(expression[i]=='-' && expression[i+1]=='>') return true;
+    }
+    return false;
+}
+//Integ[2][x][x][0->1,0->1]
 string integHandler(vector<string>& tokenList){
-    if (tokenList.size()>4) return defintegHandler(tokenList);
+    if (isDefinite(tokenList[tokenList.size()-1])) return defintegHandler(tokenList);
     int degree = -1;
     string innerFunc = "";
     
