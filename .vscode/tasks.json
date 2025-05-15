@@ -19,7 +19,8 @@
         "src/assets/pdiffHandler.cpp",
         "src/assets/sqrtHandler.cpp",
         "src/assets/symbolHandler.cpp",
-        "-o", "parser"
+        "src/assets/matrixHandler.cpp",
+        "-o", "bin/parser"
       ],
       "group": {
         "kind": "build",

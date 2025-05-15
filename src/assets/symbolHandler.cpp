@@ -63,3 +63,15 @@ string combinationHandler(vector<string>& tokenList, int type){
     else finalExpression+= expressionParser(tokenList[1]) + "}"+corp+"_{" + expressionParser(tokenList[2]) +"} ";
     return finalExpression;
 }
+
+string vectorHandler(vector<string>& tokenList){
+    string finalExpression = "\\vec{";
+    finalExpression+= expressionParser(tokenList[1]) +"} ";
+    return finalExpression;
+}
+
+string overlineHandler(vector<string>& tokenList){
+    string finalExpression = "\\overline{";
+    finalExpression+= expressionParser(tokenList[1]) +"} ";
+    return finalExpression;
+}

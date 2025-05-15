@@ -17,6 +17,10 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Sum") return sumHandler(tokenList);
     else if(keyword == "C") return combinationHandler(tokenList,0);
     else if(keyword == "P") return combinationHandler(tokenList,1);
+    else if(keyword == "Vec") return vectorHandler(tokenList);
+    else if(keyword == "Line") return overlineHandler(tokenList);
+    else if(keyword == "Mx") return matrixHandler(tokenList, 0);
+    else if(keyword == "Dt") return matrixHandler(tokenList, 1);
     else return tokenList[0];
 
     return "";
