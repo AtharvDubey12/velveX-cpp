@@ -18,6 +18,7 @@
         "src/assets/diffHandler.cpp",
         "src/assets/pdiffHandler.cpp",
         "src/assets/sqrtHandler.cpp",
+        "src/assets/symbolHandler.cpp",
         "-o", "parser"
       ],
       "group": {

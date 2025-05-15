@@ -9,3 +9,4 @@
 #include "diffHandler.h"
 #include "pdiffHandler.h"
 #include "sqrtHandler.h"
+#include "symbolHandler.h"
