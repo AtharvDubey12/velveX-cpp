@@ -9,11 +9,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/process', (req, res) => {
     const userInput = req.body.input;
 
-    // Call the C++ executable
-    execFile('./parser.exe', [userInput], (error, stdout, stderr) => {
+    execFile('./bin/parser.exe', [userInput], (error, stdout, stderr) => {
         if (error) {
             console.error('Execution error:', error);
-            res.status(500).send('Error running processor.exe');
+            res.status(500).send('Error running parser.exe');
             return;
         }
         res.send(stdout);
