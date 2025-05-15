@@ -11,3 +11,4 @@
 #include "sqrtHandler.h"
 #include "symbolHandler.h"
 #include "matrixHandler.h"
+#include "piecewiseHandler.h"

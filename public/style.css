@@ -132,7 +132,7 @@
             margin-top: 2rem;
         }
 
-        .output-label {
+        .output-label{
             font-size: 0.9rem;
             font-weight: 500;
             margin-bottom: 0.8rem;
@@ -141,7 +141,7 @@
             align-items: center;
         }
 
-        .output-label::before {
+        .output-label::before{
             content: "";
             display: inline-block;
             width: 8px;
@@ -151,7 +151,7 @@
             border-radius: 50%;
         }
 
-        #outputBox {
+        #outputBox{
             background-color: var(--light-gray);
             border-left: 2px solid var(--green);
             padding: 1.2rem;
@@ -202,3 +202,17 @@
         .loading .loader {
             display: block;
         }
+    #latexBox {
+    background-color: var(--light-gray);
+    border-left: 2px solid var(--green);
+    padding: 1.2rem;
+    font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+    font-size: 0.9rem;
+    min-height: 55px;
+    color: var(--navy);
+    border-radius: 0 4px 4px 0;
+    white-space: pre-wrap;
+    word-break: break-word;
+    position: relative;
+}
+

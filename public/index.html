@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VelveX</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 </head>
 <body>
     <nav>
@@ -26,7 +30,11 @@
             <button onclick="submitInput()">Convert</button>
             
             <div class="output-container">
-                <div class="output-label">Output (LaTeX)</div>
+                
+                <div class="output-label">Raw Output (LaTeX)</div>
+                <div id="latexBox"></div> <br>
+                      
+                <div class="output-label">Rendered Output (MathJax)</div>
                 <div id="outputBox">
                 </div>
                 <div class="loader"></div>
