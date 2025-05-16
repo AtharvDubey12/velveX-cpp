@@ -56,7 +56,7 @@ string defintegHandler(vector<string>& tokenList){
         if(limit[i]=='[' || limit[i]=='(') openCount++;
         else if(limit[i]==']' || limit[i]==')') openCount--;
 
-        if(!openCount && limit[i]=='-'){
+        if(!openCount && i<limit.length()-1 && limit[i]=='-' && limit[i+1]=='>'){
             if(current!="") currentSet.push_back(current);
             i++;
             current="";
