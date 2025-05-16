@@ -75,3 +75,9 @@ string overlineHandler(vector<string>& tokenList){
     finalExpression+= expressionParser(tokenList[1]) +"} ";
     return finalExpression;
 }
+
+string boldmathHandler(vector<string>& tokenList){
+    string finalExpression = "\\mathbf{";
+    finalExpression+= expressionParser(tokenList[1]) +"} ";
+    return finalExpression;
+}

@@ -21,8 +21,10 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Line") return overlineHandler(tokenList);
     else if(keyword == "Mx") return matrixHandler(tokenList, 0);
     else if(keyword == "Dt") return matrixHandler(tokenList, 1);
+    else if(keyword == "Bold") return boldmathHandler(tokenList);
     else if(keyword == "<=") return " \\leq ";
     else if(keyword == ">=") return " \\geq ";
+    else if(keyword == "!=") return " \\neq ";
     else if(keyword == "All") return " \\forall ";
     else if(keyword == "Del") return " \\delta ";
     else if(keyword == "Delta") return " \\Delta ";
@@ -31,7 +33,10 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Omega") return " \\Omega ";
     else if(keyword == "Inf") return " \\infty ";
     else if(keyword == "__") return " \\,\\,\\, ";
-    
+    else if(keyword == "Theta") return " \\theta ";
+    else if(keyword == "Vtheta") return " \\vartheta ";
+    else if(keyword == "Epsilon") return " \\epsilon ";
+    else if(keyword == "Vepsilon") return " \\varepsilon ";
     else return tokenList[0];
 
     return "";
