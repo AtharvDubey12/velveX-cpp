@@ -1,0 +1,43 @@
+name: Build Linux Binary
+
+on:
+  push:
+    branches: [main]  # change 'main' to your default branch if different
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Install g++
+      run: sudo apt update && sudo apt install g++ -y
+
+    - name: Build Project
+      run: |
+        mkdir -p bin
+        g++ -std=c++17 -I src/headers \
+        src/main.cpp \
+        src/assets/tokenExtractor.cpp \
+        src/assets/tokenProcessor.cpp \
+        src/assets/expressionParser.cpp \
+        src/assets/integHandler.cpp \
+        src/assets/defintegHandler.cpp \
+        src/assets/fracHandler.cpp \
+        src/assets/diffHandler.cpp \
+        src/assets/pdiffHandler.cpp \
+        src/assets/sqrtHandler.cpp \
+        src/assets/symbolHandler.cpp \
+        src/assets/matrixHandler.cpp \
+        src/assets/piecewiseHandler.cpp \
+        -o bin/parser
+        chmod +x bin/parser
+
+    - name: Upload Linux Binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: linux-parser
+        path: bin/parser
