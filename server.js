@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.post('/process', (req, res) => {
     const userInput = req.body.input;
 
-    execFile('./bin/parser.exe', [userInput], (error, stdout, stderr) => {
+    execFile('./bin/parser', [userInput], (error, stdout, stderr) => {
         if (error) {
             console.error('Execution error:', error);
             res.status(500).send('Error running parser.exe');
