@@ -21,6 +21,17 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Line") return overlineHandler(tokenList);
     else if(keyword == "Mx") return matrixHandler(tokenList, 0);
     else if(keyword == "Dt") return matrixHandler(tokenList, 1);
+    else if(keyword == "<=") return " \\leq ";
+    else if(keyword == ">=") return " \\geq ";
+    else if(keyword == "All") return " \\forall ";
+    else if(keyword == "Del") return " \\delta ";
+    else if(keyword == "Delta") return " \\Delta ";
+    else if(keyword == "Nabla") return " \\nabla ";
+    else if(keyword == "Om") return " \\omega ";
+    else if(keyword == "Omega") return " \\Omega ";
+    else if(keyword == "Inf") return " \\infty ";
+    else if(keyword == "__") return " \\,\\,\\, ";
+    
     else return tokenList[0];
 
     return "";
