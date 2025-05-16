@@ -22,6 +22,7 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Mx") return matrixHandler(tokenList, 0);
     else if(keyword == "Dt") return matrixHandler(tokenList, 1);
     else if(keyword == "Bold") return boldmathHandler(tokenList);
+    else if(keyword == "Piece") return piecewiseHandler(tokenList);
     else if(keyword == "<=") return " \\leq ";
     else if(keyword == ">=") return " \\geq ";
     else if(keyword == "!=") return " \\neq ";

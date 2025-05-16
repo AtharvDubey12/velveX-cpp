@@ -20,6 +20,7 @@
         "src/assets/sqrtHandler.cpp",
         "src/assets/symbolHandler.cpp",
         "src/assets/matrixHandler.cpp",
+        "src/assets/piecewiseHandler.cpp",
         "-o", "bin/parser"
       ],
       "group": {
