@@ -13,13 +13,11 @@ async function submitInput() {
 
         const rawLatex = await res.text();
 
-        // Display raw LaTeX
         document.getElementById('latexBox').innerText = rawLatex;
 
-        // Render math with MathJax
         const wrappedLatex = `\\[ ${rawLatex} \\]`;
         const outputBox = document.getElementById('outputBox');
-        outputBox.innerHTML = wrappedLatex;
+        outputBox.textContent = wrappedLatex;
 
         if (window.MathJax) {
             MathJax.typesetPromise([outputBox]);

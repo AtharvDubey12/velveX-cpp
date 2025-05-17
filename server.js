@@ -12,7 +12,7 @@ app.post('/process', (req, res) => {
     execFile('./bin/parser', [userInput], (error, stdout, stderr) => {
         if (error) {
             console.error('Execution error:', error);
-            res.status(500).send('Error running parser.exe');
+            res.status(500).send('Error running velveX');
             return;
         }
         res.send(stdout);
