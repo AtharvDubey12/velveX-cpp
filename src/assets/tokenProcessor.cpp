@@ -23,6 +23,10 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Dt") return matrixHandler(tokenList, 1);
     else if(keyword == "Bold") return boldmathHandler(tokenList);
     else if(keyword == "Piece") return piecewiseHandler(tokenList);
+    else if(keyword == "Prod") return prodHandler(tokenList);
+    else if(keyword == "Txt") return textHandler(tokenList);
+    else if(keyword == "_") return scriptHandler(tokenList,1);
+    else if(keyword == "^") return scriptHandler(tokenList,0);
     else if(keyword == "<=") return " \\leq ";
     else if(keyword == ">=") return " \\geq ";
     else if(keyword == "!=") return " \\neq ";
@@ -38,6 +42,27 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Vtheta") return " \\vartheta ";
     else if(keyword == "Epsilon") return " \\epsilon ";
     else if(keyword == "Vepsilon") return " \\varepsilon ";
+    else if(keyword == "Alpha") return " \\alpha ";
+    else if(keyword == "Beta") return " \\beta ";
+    else if(keyword == "Gamma") return " \\gamma ";
+    else if(keyword == "Lamb") return " \\lambda ";
+    else if(keyword == "Nu") return " \\nu ";
+    else if(keyword == "Pi") return " \\pi ";
+    else if(keyword == "~~") return " \\approx ";
+    else if(keyword == "==") return " \\equiv ";
+    else if(keyword == "~=") return " \\cong ";
+    else if(keyword == "!~=") return " \\ncong ";
+    else if(keyword == "Angle") return " \\angle ";
+    else if(keyword == "~>") return " \\rightarrow ";
+    else if(keyword == "<~") return " \\leftarrow ";
+    else if(keyword == "<~>") return " \\leftrightarrow ";
+    else if(keyword == "=>") return " \\Rightarrow ";
+    else if(keyword == "<=>") return " \\Leftrightarrow ";
+    else if(keyword == "In") return " \\in ";
+    else if(keyword == "!In") return " \\notin ";
+    else if(keyword == "Sub") return " \\subset ";
+    else if(keyword == "Sub=") return " \\subseteq ";
+    else if(keyword == "!Sub") return " \\nsubseteq ";
     else return tokenList[0];
 
     return "";

@@ -81,3 +81,26 @@ string boldmathHandler(vector<string>& tokenList){
     finalExpression+= expressionParser(tokenList[1]) +"} ";
     return finalExpression;
 }
+
+string textHandler(vector<string>& tokenList){
+    string finalExpression = "\\text{";
+    finalExpression+= tokenList[1] +"} ";
+    return finalExpression;
+}
+
+string scriptHandler(vector<string>& tokenList, int type){
+    string finalExpression = (type)? "_{": "^{";
+    finalExpression+= expressionParser(tokenList[1]) +"} ";
+    return finalExpression;
+}
+
+string prodHandler(vector<string>& tokenList){
+    string finalExpression = "";
+    vector<vector<string>> sanitizedLimits;
+    if(tokenList.size()==1) return "\\prod \\, ";
+    else{
+        sanitizedLimits = limitExtractor(tokenList[1]);
+        finalExpression += "\\prod_{" + expressionParser(sanitizedLimits[0][0]) + "}^{"+ expressionParser(sanitizedLimits[0][1])+"} \\, ";
+    }
+    return finalExpression;
+}
