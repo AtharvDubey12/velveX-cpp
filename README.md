@@ -13,4 +13,4 @@ Velvet is a highly intuitive and compact syntax when compared with LaTeX. Velvet
 Note for Windows Users:
 before hosting server, change the execution file from 'parser' to 'parser.exe'.
 
-The project is live at: https://www.velvex.onrender.com/
+The project is live at: velvex.onrender.com
