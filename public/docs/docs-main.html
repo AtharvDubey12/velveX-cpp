@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velvet Syntax Reference</title>
+  <link rel="stylesheet" href="style.css">
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+</head>
+<body>
+        <nav>
+        <div class="nav-container">
+            <div class="brand">VelveX</div>
+            <div class="headline">a parser for Velvet</div>
+            <img src="../icon.png" alt="" style="width: 50px; position: absolute; translate: 85px 0px;">
+        </div>
+    </nav>
+  <h1>Velvet Syntax </h1>
+  <p>Velvet is a custom mathematical syntax made to simplify and speed up writing LaTeX, by not writing LaTeX at all. Designed for compact yet readable expressions of mathematical operations.</p>
+
+  <h2>Integration Syntax</h2>
+  <p>Use <code>Integ[order][function][variables][limits]</code> to perform definite or indefinite integration.</p>
+  
+  <div class="example">
+    <strong>Format:</strong>
+    <pre>Integ[1][x^2][x][0->a]</pre>
+    <strong>Meaning:</strong> Integrate <code>x²</code> once with respect to <code>x</code> from 0 to <code>a</code>. <br>
+    <strong>Rendered as:</strong>
+    <pre><div id="render" style="overflow-y: hidden;"> \[ \int_{0}^{a} x^2 \, dx \]</div></pre>
+  </div>
+  <br>
+  <div class="example">
+    <strong>Format:</strong>
+    <pre>Integ[2][sin(x)][x,y][0->Pi, 0->Pi]</pre>
+    <strong>Meaning:</strong> Double integral of <code>sin(x)</code> with respect to <code>x</code> and <code>y</code> from 0 to π. <br>
+    <strong>Rendered as:</strong>
+    <pre><div id="render" style="overflow-y: hidden;"> \[ \int_{0}^{ \pi } \int_{ 0}^{ \pi } sin\left(x\right)\, dx \, dy \]</div></pre>
+  </div>
+    Note: In case limits are not given, the integral is considered as indefinite.
+  <h2> Differentiation Syntax</h2>
+  <p>Use <code>Diff[order][function][variables]</code> for ordinary derivatives.</p>
+  
+  <div class="example">
+    <pre>Diff[x^3][x]</pre>
+    <strong>Meaning:</strong> First derivative of <code>x³</code> with respect to <code>x</code>.
+  </div>
+
+  <div class="example">
+    <pre>Diff[2][sin(x^2)][x]</pre>
+    <strong>Meaning:</strong> Second derivative of <code>sin(x²)</code> with respect to <code>x</code>.
+  </div>
+  Note: in case order is not entered, it will be implicitly assumed as 1.
+
+  <h2> Partial Differentiation Syntax</h2>
+  <p>Use <code>Pdiff[order][function][variables]</code> to compute partial derivatives.</p>
+
+  <div class="example">
+    <pre>Pdiff[1][x^2 + y^2][x]</pre>
+    <strong>Meaning:</strong> Partial derivative of <code>x² + y²</code> with respect to <code>x</code>.
+  </div>
+
+  <div class="example">
+    <pre>Pdiff[2][x^2 * y + sin(x)][x,y]</pre>
+    <strong>Meaning:</strong> Second-order mixed partial derivative of <code>x² * y + sin(x)</code> with respect to <code>x</code> and <code>y</code>.
+  </div>
+
+  <h2> Fraction Syntax</h2>
+  <p>Use <code>Frac[numerator][denominator]</code> to represent a fraction.</p>
+
+  <div class="example">
+    <pre>Frac[cot(x)][tan(y)]]</pre>
+    <strong>Meaning:</strong> Divide <code> cot(x)</code> by <code>tan(x)</code>.
+  </div>
+
+  <div class="example">
+    <pre>Frac[2][x^2 * y + sin(x)][x]</pre>
+    <strong>Meaning:</strong> Divide <code>x² * y + sin(x)</code> by <code>x</code>.
+  </div>
+
+  <h2> Square Root Syntax</h2>
+  <p>Use <code>Sqrt[degree][function]</code> to represent the function with a square root symbol.</p>
+
+  <div class="example">
+    <pre>Sqrt[a][b]]</pre>
+    <strong>Meaning:</strong> Represents <code> b^(1/a)</code>.
+  </div>
+
+  <div class="example">
+    <pre>Sqrt[b]</pre>
+    <strong>Meaning:</strong> Represents <code>b^(1/2)</code>.
+  </div>
+
+    <h2> Matrix Syntax</h2>
+  <p>Use <code>Mx[[Row 1 in CSV format],[Row 2 in CSV format],...]</code> to represent a M x N order matrix.</p>
+
+  <div class="example">
+    <pre>Mx[[1,0,0],[0,1,0],[0,0,1]]</pre>
+    <strong>Meaning:</strong> Represents <code>Identity Matrix</code>.
+  </div>
+
+  <div class="example">
+    <pre>Mx[[0,0,0]]</pre>
+    <strong>Meaning:</strong> Represents <code>[0,0,0] Null vector</code>.
+  </div>
+
+  <footer>
+    &copy; 2025 Velvet Documentation. Built with 💚 for clean syntax.
+  </footer>
+  <script>
+    const toRender = document.querySelectorAll("#render");
+    if (window.MathJax) {
+        MathJax.typesetPromise(toRender);
+    }
+  </script>
+</body>
+</html>

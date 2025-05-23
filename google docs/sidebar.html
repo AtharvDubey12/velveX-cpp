@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <style>
+    body { font-family: Arial, sans-serif; padding: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 10px; }
+    button { margin-top: 10px; }
+    #latexOutput {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 15px;
+      min-height: 100px;
+      background-color: #f9f9f9;
+    }
+    #imageOutput img {
+      margin-top: 15px;
+      max-width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+
+  <!-- MathJax SVG output -->
+  <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+  </script>
+</head>
+<body>
+  <h3>Enter Velvet Expression:</h3>
+  <input type="text" id="velvetInput" placeholder="e.g., Integ[1][x][x]" />
+  <button onclick="convertAndRender()">Convert and Render</button>
+
+  <div id="latexOutput"></div>
+  <div id="imageOutput"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script>
+    function convertAndRender() {
+      const input = document.getElementById('velvetInput').value;
+      if (!input.trim()) {
+        alert('Please enter a velvet expression.');
+        return;
+      }
+
+      google.script.run
+        .withSuccessHandler(renderLatexAndImage)
+        .withFailureHandler(err => alert('Error converting expression: ' + err.message))
+        .convertVelvetToLatex(input);
+    }
+
+    function renderLatexAndImage(latex) {
+      const latexOutput = document.getElementById('latexOutput');
+      const imageOutput = document.getElementById('imageOutput');
+
+      // Clear previous
+      latexOutput.innerHTML = '';
+      imageOutput.innerHTML = '';
+
+      // Set LaTeX as text for MathJax to parse
+      latexOutput.textContent = `\\[${latex}\\]`;
+
+      MathJax.typesetPromise([latexOutput]).then(() => {
+        // MathJax rendered, now isolate the SVG node
+        const svg = latexOutput.querySelector('svg');
+        if (!svg) {
+          alert('MathJax SVG not found.');
+          return;
+        }
+
+        // Create a new container div to hold the cloned SVG
+        const cleanContainer = document.createElement('div');
+        cleanContainer.style.background = 'transparent';
+        cleanContainer.style.display = 'inline-block';
+        cleanContainer.style.padding = '10px';
+        cleanContainer.style.border = 'none';
+        cleanContainer.style.borderRadius = '4px';
+
+        // Deep clone SVG node
+        const svgClone = svg.cloneNode(true);
+
+        // Remove any hidden or duplicate groups if needed here (optional, advanced)
+
+        // Append cloned SVG to container
+        cleanContainer.appendChild(svgClone);
+
+        // Append clean container to latexOutput temporarily (offscreen)
+        latexOutput.appendChild(cleanContainer);
+
+        // Use html2canvas on this container only
+        setTimeout(() => {
+          html2canvas(cleanContainer, {
+            backgroundColor: null,
+            scale: 2
+          }).then(canvas => {
+            // Remove the temp container after capture
+            cleanContainer.remove();
+
+            // Show image
+            const img = document.createElement('img');
+            img.src = canvas.toDataURL('image/png');
+            imageOutput.appendChild(img);
+          }).catch(err => {
+            alert('Error creating image: ' + err.message);
+          });
+        }, 100);
+
+      }).catch(err => {
+        alert('MathJax rendering failed: ' + err.message);
+      });
+    }
+  </script>
+</body>
+</html>
