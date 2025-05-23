@@ -53,22 +53,21 @@
       const latexOutput = document.getElementById('latexOutput');
       const imageOutput = document.getElementById('imageOutput');
 
-      // Clear previous
+     
       latexOutput.innerHTML = '';
       imageOutput.innerHTML = '';
 
-      // Set LaTeX as text for MathJax to parse
       latexOutput.textContent = `\\[${latex}\\]`;
 
       MathJax.typesetPromise([latexOutput]).then(() => {
-        // MathJax rendered, now isolate the SVG node
+        
         const svg = latexOutput.querySelector('svg');
         if (!svg) {
           alert('MathJax SVG not found.');
           return;
         }
 
-        // Create a new container div to hold the cloned SVG
+        
         const cleanContainer = document.createElement('div');
         cleanContainer.style.background = 'transparent';
         cleanContainer.style.display = 'inline-block';
@@ -76,27 +75,21 @@
         cleanContainer.style.border = 'none';
         cleanContainer.style.borderRadius = '4px';
 
-        // Deep clone SVG node
+        
         const svgClone = svg.cloneNode(true);
-
-        // Remove any hidden or duplicate groups if needed here (optional, advanced)
-
-        // Append cloned SVG to container
         cleanContainer.appendChild(svgClone);
 
-        // Append clean container to latexOutput temporarily (offscreen)
+        
         latexOutput.appendChild(cleanContainer);
 
-        // Use html2canvas on this container only
+        
         setTimeout(() => {
           html2canvas(cleanContainer, {
             backgroundColor: null,
             scale: 2
           }).then(canvas => {
-            // Remove the temp container after capture
+           
             cleanContainer.remove();
-
-            // Show image
             const img = document.createElement('img');
             img.src = canvas.toDataURL('image/png');
             imageOutput.appendChild(img);
