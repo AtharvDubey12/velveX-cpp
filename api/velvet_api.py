@@ -1,16 +1,15 @@
-import subprocess
-import os
+import httpx
 
-curr_dir = os.path.dirname(__file__)
-
-def call_velvex(command, relative_path = ["..", "bin", "parser.exe"]):
-    path = ""
-    for index in range(len(relative_path)):
-        if index != len(relative_path)-1:
-            path += relative_path[index] + "\\"
-        else: path += relative_path[index]
-    compiler_path = os.path.abspath(os.path.join(curr_dir, path)) 
-    result = subprocess.run([compiler_path, command], capture_output = True, text = True)
-    return result.stdout if result.stdout else result.stderr
-
-
+async def call_velvex(input_str: str) -> str:
+    async with httpx.AsyncClient() as client:
+        try:
+            response = await client.post(
+                "https://velvex.onrender.com/process",
+                json={"input": input_str}
+            )
+            response.raise_for_status()
+            return response.text
+        except httpx.RequestError as e:
+            return f"Request failed: {str(e)}"
+        except httpx.HTTPStatusError as e:
+            return f"HTTP error occurred: {str(e)}"
