@@ -12,3 +12,4 @@
 #include "symbolHandler.h"
 #include "matrixHandler.h"
 #include "piecewiseHandler.h"
+#include "predefHandler.h"

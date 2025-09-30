@@ -104,3 +104,9 @@ string prodHandler(vector<string>& tokenList){
     }
     return finalExpression;
 }
+
+string setNotateHandler(vector<string>& tokenList){
+    string finalExpression = "\\mathbb{";
+    finalExpression+= tokenList[1] +"} ";
+    return finalExpression;
+}
