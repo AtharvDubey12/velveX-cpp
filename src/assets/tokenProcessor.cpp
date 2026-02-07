@@ -83,8 +83,8 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Sub=") return " \\subseteq ";
     else if(keyword == "!Sub") return " \\nsubseteq ";
     else if(keyword == "Re") return " \\Re ";
-    else if (keyword == "\\n") return " \\\\ ";
-    else return tokenList[0];
+    else if (keyword == "\\n") return " \\\\ \n";
+    else return " " + tokenList[0];
 
     return "";
 }

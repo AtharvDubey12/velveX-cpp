@@ -1,5 +1,1 @@
-Zeta  
-
-Zeta 
-
-f(x) + Integ[1][x][x]
+f(x) = Pdiff[x][y]

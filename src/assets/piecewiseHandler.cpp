@@ -1,11 +1,13 @@
 #include "../headers/piecewiseHandler.h"
 #include "../headers/expressionParser.h"
 using namespace std;
+/*
 //[]=>[],[]=>[]
 // f(x) = \begin{cases}
 // 5, & \text{if } x > 2 \\
 // 3, & \text{if } x < 1
 // \end{cases}
+*/
 string piecewiseHandler(vector<string>& tokenList){
     int openCount = 0;
     string stream = tokenList[1];

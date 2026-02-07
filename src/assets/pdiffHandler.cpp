@@ -47,8 +47,8 @@ string pdiffHandler(vector<string>& tokenList){
     }
 
     string num_sanitized = "";
-    if(degree>1) num_sanitized ="\\frac{\\partial^" + to_string(degree) +" "+ innerFunc + "}";
-    else num_sanitized ="\\frac{\\partial " + innerFunc + "}";
+    if(degree>1) num_sanitized =" \\frac{\\partial^" + to_string(degree) +" "+ innerFunc + "}";
+    else num_sanitized =" \\frac{\\partial " + innerFunc + "}";
     string den_sanitized = "{";
 
     for(int i = 0; i<varList.size(); i++){
