@@ -1,6 +1,19 @@
 #include "../headers/tokenExtractor.h"
+#include <string>
+#include <cctype>
+#include <algorithm>
 
 using namespace std;
+
+inline void trim(std::string& s) {
+    // left trim
+    s.erase(s.begin(), std::find_if(s.begin(), s.end(),
+        [](unsigned char ch) { return !std::isspace(ch); }));
+
+    // right trim
+    s.erase(std::find_if(s.rbegin(), s.rend(),
+        [](unsigned char ch) { return !std::isspace(ch); }).base(), s.end());
+}
 
 vector<string> tokenExtractor(string parent){
     vector<string> result;  //should contain 'keyword', 'degree', 'func', 'var' and 'lim' (if applicable)
@@ -14,12 +27,13 @@ vector<string> tokenExtractor(string parent){
         else if(parent[i]==']') openCount--;
         isInner = (bool) openCount;
         if(prevState != isInner){
-            if(currentToken!="") result.push_back(currentToken);
+            
+            if(currentToken!="") {trim(currentToken); result.push_back(currentToken);}
             currentToken = "";
             prevState = isInner;
         }
         else currentToken += parent[i]; 
     }
-    if(currentToken != "") result.push_back(currentToken);
+    if(currentToken != "") {trim(currentToken); result.push_back(currentToken);}
     return result;
 }

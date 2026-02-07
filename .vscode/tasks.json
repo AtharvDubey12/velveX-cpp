@@ -21,6 +21,7 @@
         "src/assets/symbolHandler.cpp",
         "src/assets/matrixHandler.cpp",
         "src/assets/piecewiseHandler.cpp",
+        "src/assets/predefHandler.cpp",
         "-o", "bin/parser"
       ],
       "group": {

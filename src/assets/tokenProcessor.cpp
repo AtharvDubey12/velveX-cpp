@@ -3,11 +3,20 @@
 #include "../headers/fracHandler.h"
 #include "../headers/sqrtHandler.h"
 #include "../headers/parser.h"
+
+
+
 using namespace std; 
+
+
 
 string tokenProcessor(vector<string>& tokenList){
     string output = "";
     string keyword = tokenList[0];
+  //  for (auto& it : tokenList) trim(it);
+  //  for (auto& it : tokenList) cout << it << ',' << endl;
+   // cout << "ended once" << endl;
+
     if(keyword == "Integ") return integHandler(tokenList);
     else if(keyword == "Frac") return fracHandler(tokenList);
     else if(keyword == "Diff") return diffHandler(tokenList);
@@ -44,7 +53,7 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Nabla") return " \\nabla ";
     else if(keyword == "Om") return " \\omega ";
     else if(keyword == "Omega") return " \\Omega ";
-    else if(keyword == "Zeta") return "\\zeta";
+    else if(keyword == "Zeta") return " \\zeta ";
     else if(keyword == "Inf") return " \\infty ";
     else if(keyword == "__") return " \\,\\,\\, ";
     else if(keyword == "Theta") return " \\theta ";
@@ -74,6 +83,7 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Sub=") return " \\subseteq ";
     else if(keyword == "!Sub") return " \\nsubseteq ";
     else if(keyword == "Re") return " \\Re ";
+    else if (keyword == "\\n") return " \\\\ ";
     else return tokenList[0];
 
     return "";
