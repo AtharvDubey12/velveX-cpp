@@ -14,11 +14,16 @@ int main(int argc, char* argv[]) {
 
     string inputFile;
     string outputFile;
+    string ver = "velvex version 1.2.0 LTS";
 
     // ---- Parse arguments ----
+
     for (int i = 1; i < argc; i++) {
         string arg = argv[i];
-
+        if (arg == "-v" || arg == "--version") {
+            cout << ver << '\n';
+            return 0;
+        }
         if (arg == "-o") {
             if (i + 1 >= argc) {
                 cerr << "Error: -o requires a filename\n";
