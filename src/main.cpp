@@ -7,7 +7,7 @@ using namespace std;
 
 int main(int argc, char* argv[]){
    string x = expressionParser(argv[1]);
-    string output = "";  //output with sanitized parenthesis.
+    string output = "";  // output with sanitized parenthesis.
     for (int i=0; i<x.length(); i++){
         if(x[i]=='(') output+= "\\left(";
         else if (x[i]==')') output+= "\\right)";

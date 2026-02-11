@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build Velvex Wasm",
+      "type": "shell",
+      "command": "function py { & python $args }; .\\src\\emsdk\\emsdk_env.ps1; emcc -std=c++17 -O3 -I \"src/headers\" \"src/main.cpp\" \"src/assets/tokenExtractor.cpp\" \"src/assets/tokenProcessor.cpp\" \"src/assets/expressionParser.cpp\" \"src/assets/integHandler.cpp\" \"src/assets/defintegHandler.cpp\" \"src/assets/fracHandler.cpp\" \"src/assets/diffHandler.cpp\" \"src/assets/pdiffHandler.cpp\" \"src/assets/sqrtHandler.cpp\" \"src/assets/symbolHandler.cpp\" \"src/assets/matrixHandler.cpp\" \"src/assets/piecewiseHandler.cpp\" \"src/assets/predefHandler.cpp\" -o \"public/velvex_compiler.js\" -s EXPORTED_RUNTIME_METHODS=['ccall'] -s MODULARIZE=1 -s EXPORT_NAME='createVelvexModule'",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    }
+  ]
+}
