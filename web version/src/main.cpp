@@ -2,7 +2,9 @@
 #include <iostream>
 #include <string>
 #include "./headers/parser.h"
+#include "./headers/globalVars.h"
 
+std::unordered_map<std::string, std::string> custom_defines;
 using namespace std;
 
 #ifdef __cplusplus
@@ -12,6 +14,7 @@ extern "C" {
 EMSCRIPTEN_KEEPALIVE
 void compile_velvet(const char* input) {
     // 1. Process the input string
+    custom_defines.clear();
     string x = expressionParser(input);
     string output = "";
 

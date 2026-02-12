@@ -3,8 +3,8 @@
 #include "../headers/fracHandler.h"
 #include "../headers/sqrtHandler.h"
 #include "../headers/parser.h"
-
-
+#include <unordered_map>
+#include "../headers/globalVars.h"
 
 using namespace std; 
 
@@ -85,6 +85,11 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Re") return " \\Re ";
     else if (keyword == "Ignore") return "";
     else if (keyword == "\\n") return " \\\\ \n";
+    else if (keyword == "Let") {
+        custom_defines[tokenList[1]] = expressionParser(tokenList[2]);
+        return "";
+    }
+    else if (custom_defines.find(keyword) != custom_defines.end()) return custom_defines[keyword];
     else return " " + tokenList[0];
 
     return "";

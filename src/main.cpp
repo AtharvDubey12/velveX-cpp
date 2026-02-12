@@ -2,7 +2,9 @@
 #include<string>
 #include<vector>
 #include "./headers/parser.h"
+#include "./headers/globalVars.h"
 
+std::unordered_map<std::string, std::string> custom_defines;
 using namespace std;
 
 int main(int argc, char* argv[]){
