@@ -27,7 +27,7 @@ string piecewiseHandler(vector<string>& tokenList){
     string stream = tokenList[1];
     bool condition = false;
     string current = "";
-    cout << stream << endl;
+  //  cout << stream << endl;
     string finalExpression = "\\begin{cases} ";
     for(int i = 0; i < stream.length(); i++){
         if(stream[i]=='[' || stream[i]=='(') openCount++;
