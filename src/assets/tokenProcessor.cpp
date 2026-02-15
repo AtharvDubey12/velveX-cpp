@@ -3,10 +3,8 @@
 #include "../headers/fracHandler.h"
 #include "../headers/sqrtHandler.h"
 #include "../headers/parser.h"
-#include "../headers/globalVars.h"
 #include <unordered_map>
-
-
+#include "../headers/globalVars.h"
 
 using namespace std; 
 
@@ -46,6 +44,15 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Binomial") return binomHandler(tokenList);
     else if(keyword == "Legendre") return legendreHandler(tokenList);
     else if(keyword == "Laurent") return laurentHandler(tokenList);
+    else if(keyword == "Geometric") return geometricHandler(tokenList);
+    else if(keyword == "Exponential") return expSeriesHandler(tokenList);
+    else if(keyword == "Sine") return sinSeriesHandler(tokenList);
+    else if(keyword == "Cosine") return cosSeriesHandler(tokenList);
+    else if(keyword == "Logarithm") return logSeriesHandler(tokenList);
+    else if(keyword == "Power") return powerSeriesHandler(tokenList);
+    else if(keyword == "General") return genFuncHandler(tokenList);
+    else if(keyword == "Raw") return rawHandler(tokenList);
+    else if(keyword == "Import") return importHandler(tokenList);
     else if(keyword == "<=") return " \\leq ";
     else if(keyword == ">=") return " \\geq ";
     else if(keyword == "!=") return " \\neq ";
@@ -85,9 +92,9 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Sub=") return " \\subseteq ";
     else if(keyword == "!Sub") return " \\nsubseteq ";
     else if(keyword == "Re") return " \\Re ";
-    else if (keyword == "\\n") return " \\\\ \n";
     else if (keyword == "Ignore") return "";
-     else if (keyword == "Let") {
+    else if (keyword == "\\n") return " \\\\ \n";
+    else if (keyword == "Let") {
         custom_defines[tokenList[1]] = expressionParser(tokenList[2]);
         return "";
     }

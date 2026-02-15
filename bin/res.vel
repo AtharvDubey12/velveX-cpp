@@ -1,1 +1,78 @@
-y
+Txt[Derivation of Energy Conservation in a Harmonic Oscillator]
+
+Txt[Consider a particle of mass m attached to a spring with constant k.]
+
+Txt[Restoring force is proportional to displacement.]
+
+F = - k x
+
+Txt[By Newton second law.]
+
+F = m Diff[2][x][t]
+
+Txt[Equating force expressions.]
+
+m Diff[2][x][t] = - k x
+
+Txt[Multiply both sides by velocity.]
+
+m Diff[2][x][t] Diff[x][t] = - k x Diff[x][t]
+
+Txt[Observe that the left side is derivative of kinetic energy.]
+
+Diff[Frac[1][2] m (Diff[x][t])^2][t] = - k x Diff[x][t]
+
+Txt[Observe that the right side is derivative of potential energy.]
+
+- k x Diff[x][t] = - Diff[Frac[1][2] k x^2][t]
+
+Txt[Rewriting equation.]
+
+Diff[Frac[1][2] m (Diff[x][t])^2][t] + Diff[Frac[1][2] k x^2][t] = 0
+
+Txt[Combine derivatives.]
+
+Diff[Frac[1][2] m (Diff[x][t])^2 + Frac[1][2] k x^2][t] = 0
+
+Txt[Integrate with respect to time.]
+
+Integ[1][Diff[Frac[1][2] m (Diff[x][t])^2 + Frac[1][2] k x^2][t]][t] = Integ[1][0][t]
+
+Txt[Total mechanical energy is constant.]
+
+Frac[1][2] m (Diff[x][t])^2 + Frac[1][2] k x^2 = E
+
+Txt[Now rewrite system as first order matrix equation.]
+
+Diff[Mx[[x],[Diff[x][t]]]][t] = Mx[[0, 1],[-Frac[k][m], 0]] Mx[[x],[Diff[x][t]]]
+
+Txt[Coefficient matrix of the system.]
+
+Mx[[0, 1],[-Frac[k][m], 0]]
+
+Txt[Determinant of coefficient matrix.]
+
+Dt[[0, 1],[-Frac[k][m], 0]]
+
+Txt[Evaluate determinant.]
+
+Dt[[0, 1],[-Frac[k][m], 0]] = Frac[k][m]
+
+Txt[Motion depends on sign of determinant.]
+
+Piece[
+[Txt[Oscillatory motion], Frac[k][m] > 0],
+[Txt[Exponential growth or decay], Frac[k][m] < 0]
+]
+
+Txt[Angular frequency of oscillation.]
+
+Omega = Sqrt[Frac[k][m]]
+
+Txt[General solution of motion.]
+
+x = A Cosine[Omega t][Inf] + B Sine[Omega t][Inf]
+
+Txt[Energy remains conserved throughout motion.]
+
+Frac[1][2] m (Diff[x][t])^2 + Frac[1][2] k x^2 = constant

@@ -84,3 +84,79 @@ string binomHandler(vector<string>& tokenList){
     string exp = "("+a+"+"+b+")^{"+r+"} = \\sum_{n=0}^{\\infty} \\binom{"+r+"}{n} "+a+"^{\\,"+r+"-n} "+b+"^n ";
     return exp;
 }
+
+
+
+string geometricHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "\\sum_{n=0}^{\\infty} ar^n = \\frac{a}{1-r} ";
+    string a = expressionParser(tokenList[1]);
+    if (a.size()) trim(a);
+    string r = expressionParser(tokenList[2]);
+    if (r.size()) trim(r);
+    string term = expressionParser(tokenList[3]);
+    if (term.size()) trim(term);
+    string exp = "\\sum_{n=0}^{"+term+"} "+a+""+r+"^n ";
+    return exp;
+}
+
+string expSeriesHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "e^x = \\sum_{n=0}^{\\infty} \\frac{x^n}{n!} ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string term = expressionParser(tokenList[2]);
+    if (term.size()) trim(term);
+    string exp = "e^{"+x+"} = \\sum_{n=0}^{"+term+"} \\frac{"+x+"^n}{n!} ";
+    return exp;
+}
+
+string sinSeriesHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "\\sin x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!} ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string term = expressionParser(tokenList[2]);
+    if (term.size()) trim(term);
+    string exp = "\\sin("+x+") = \\sum_{n=0}^{"+term+"} (-1)^n \\frac{"+x+"^{2n+1}}{(2n+1)!} ";
+    return exp;
+}
+
+string cosSeriesHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "\\cos x = \\sum_{n=0}^{\\infty} (-1)^n \\frac{x^{2n}}{(2n)!} ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string term = expressionParser(tokenList[2]);
+    if (term.size()) trim(term);
+    string exp = "\\cos("+x+") = \\sum_{n=0}^{"+term+"} (-1)^n \\frac{"+x+"^{2n}}{(2n)!} ";
+    return exp;
+}
+
+string logSeriesHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "\\ln(1+x) = \\sum_{n=1}^{\\infty} (-1)^{n+1} \\frac{x^n}{n} ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string term = expressionParser(tokenList[2]);
+    if (term.size()) trim(term);
+    string exp = "\\ln(1+"+x+") = \\sum_{n=1}^{"+term+"} (-1)^{n+1} \\frac{"+x+"^n}{n} ";
+    return exp;
+}
+
+string powerSeriesHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "\\sum_{n=0}^{\\infty} a_n (x-a)^n ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string a = expressionParser(tokenList[2]);
+    if (a.size()) trim(a);
+    string term = expressionParser(tokenList[3]);
+    if (term.size()) trim(term);
+    string exp = "\\sum_{n=0}^{"+term+"} a_n ("+x+"-"+a+")^n ";
+    return exp;
+}
+
+string genFuncHandler(vector<string>& tokenList){
+    if(tokenList.size()==1) return "G(x) = \\sum_{n=0}^{\\infty} a_n x^n ";
+    string x = expressionParser(tokenList[1]);
+    if (x.size()) trim(x);
+    string term = expressionParser(tokenList[2]);
+    if (term.size()) trim(term);
+    string exp = "G("+x+") = \\sum_{n=0}^{"+term+"} a_n "+x+"^n ";
+    return exp;
+}

@@ -44,6 +44,15 @@ string tokenProcessor(vector<string>& tokenList){
     else if(keyword == "Binomial") return binomHandler(tokenList);
     else if(keyword == "Legendre") return legendreHandler(tokenList);
     else if(keyword == "Laurent") return laurentHandler(tokenList);
+    else if(keyword == "Geometric") return geometricHandler(tokenList);
+    else if(keyword == "Exponential") return expSeriesHandler(tokenList);
+    else if(keyword == "Sine") return sinSeriesHandler(tokenList);
+    else if(keyword == "Cosine") return cosSeriesHandler(tokenList);
+    else if(keyword == "Logarithm") return logSeriesHandler(tokenList);
+    else if(keyword == "Power") return powerSeriesHandler(tokenList);
+    else if(keyword == "General") return genFuncHandler(tokenList);
+    else if(keyword == "Raw") return rawHandler(tokenList);
+    else if(keyword == "Import") return importHandler(tokenList);
     else if(keyword == "<=") return " \\leq ";
     else if(keyword == ">=") return " \\geq ";
     else if(keyword == "!=") return " \\neq ";

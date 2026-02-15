@@ -13,3 +13,4 @@
 #include "matrixHandler.h"
 #include "piecewiseHandler.h"
 #include "predefHandler.h"
+#include "latexHandler.h"

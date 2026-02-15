@@ -1,9 +1,9 @@
 #include "../headers/expressionParser.h"
 #include "../headers/tokenProcessor.h"
 #include "../headers/tokenExtractor.h"
+#include <unordered_map>
 
 using namespace std;
-
 
 string expressionParser(string expression){
     // Integ[2][x][x][lim] + x + Diff[2][x][x]
@@ -11,6 +11,7 @@ string expressionParser(string expression){
     string currentExp = "";
     int openCount = 0;
     bool isInner = false;
+    
 
     for(int i = 0; i < expression.length(); i++){
         if(expression[i]=='[') openCount++;
